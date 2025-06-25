@@ -47,7 +47,7 @@ export class ManageExpensesComponent {
       description: 'Uber',
       value:5,
       id: 2,
-      category: 'Transpot'
+      category: 'Transport'
     }]
     this.totalExpense = calculateTotalExpenseValue(this.expensesArray);
     this.manageExpensesService.getExpenseFromApi().pipe(

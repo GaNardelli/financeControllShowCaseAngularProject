@@ -36,6 +36,7 @@ export class PieExpenseChart {
         type: "donut",
         height: '400',
         width: '500',
+        foreColor: 'white'
       },
       title : {
         text: 'Monthly Expenses',

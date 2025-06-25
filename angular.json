@@ -19,7 +19,7 @@
           "options": {
             "browser": "src/main.ts",
             "outputPath": "dist/financeControllShowCaseAngularProject",
-            "baseHref": "/",
+            "baseHref": "/financeControllShowCaseAngularProject/",
             "polyfills": [
               "zone.js",
               "@angular/localize/init"

@@ -1,29 +1,35 @@
-<mat-drawer-container class="sidenav-container">
-    <mat-drawer class="sidenav-container__element" opened mode="side">
-      <mat-list class="sidenav-container__element-list">
-        <mat-list-item class="sidenav-container__element-list__item">
-          <a routerLink="/" class="btn">
-            Dashboard
-          </a>
-        </mat-list-item>
-        <mat-list-item class="sidenav-container__element-list__item">
-          <a routerLink="/expenses" class="btn">
-             Manage Expenses
-          </a>
-        </mat-list-item>
-        <mat-list-item class="sidenav-container__element-list__item">
-          <a routerLink="/incomes" class="btn">
-             Manage Income
-          </a>
-        </mat-list-item>
-        <mat-list-item class="sidenav-container__element-list__item">
-          <a routerLink="/users" class="btn">
-            <div class="sidenav-container__element-list__item-text"><span class="material-symbols-rounded">account_circle</span> Users</div>
-          </a>
-        </mat-list-item>
-      </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>
-      <router-outlet/>
-    </mat-drawer-content>
-</mat-drawer-container>
+<main>
+  <mat-nav-list class="global-menu">
+    <a mat-list-item class="global-menu__nav-controll global-menu__nav-controll__menu" (click)="menu_open=!menu_open"><span class="material-symbols-rounded">{{menu_open ? 'close' : 'menu'}}</span></a>
+    <img class="global-menu__nav-controll global-menu__nav-controll-logo" src="logo.svg" alt="Generic Logo SVG" />
+  </mat-nav-list>
+  <mat-drawer-container class="sidenav-container">
+      <mat-drawer class="sidenav-container__element" opened="{{menu_open}}" mode="side">
+        <mat-list class="sidenav-container__element-list">
+          <mat-list-item class="sidenav-container__element-list__item">
+            <a routerLink="/" class="btn">
+              Dashboard
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sidenav-container__element-list__item">
+            <a routerLink="/expenses" class="btn">
+              Manage Expenses
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sidenav-container__element-list__item">
+            <a routerLink="/incomes" class="btn">
+              Manage Income
+            </a>
+          </mat-list-item>
+          <mat-list-item class="sidenav-container__element-list__item">
+            <a routerLink="/users" class="btn">
+              <div class="sidenav-container__element-list__item-text"><span class="material-symbols-rounded">account_circle</span> Users</div>
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </mat-drawer>
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+  </mat-drawer-container>
+</main>

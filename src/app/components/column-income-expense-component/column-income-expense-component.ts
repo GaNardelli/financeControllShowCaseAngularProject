@@ -35,6 +35,7 @@ export class ColumnIncomeExpenseComponent {
         type: 'bar',
         height: '400',
         width: '400',
+        foreColor: 'white'
       },
       plotOptions: {
         bar: {

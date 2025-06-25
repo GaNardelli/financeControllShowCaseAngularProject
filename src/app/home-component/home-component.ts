@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       description: 'Uber',
       value:5,
       id: 2,
-      category: 'Transpot'
+      category: 'Transport'
     }]
 
     this.totalBudget = calculateTotalBudgetValue(this.incomeArray);

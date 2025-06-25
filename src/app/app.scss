@@ -1,3 +1,22 @@
+.global-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: #f6f7ed;
+    position: sticky;
+    &__nav {
+        &-controll {
+            &__menu {
+                width: 3vw;
+            }
+            &-logo {
+                height: 48px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
 .sidenav-container {
     height: 100vh;
     background-color: #fff;
