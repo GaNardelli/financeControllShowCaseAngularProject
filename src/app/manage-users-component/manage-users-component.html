@@ -1,0 +1,40 @@
+<div class="main_users_component">
+    <div class="sumary_container-type sumary_container-users">
+        <h3>Connected Users</h3>
+        <form class="panel form form-search-user">
+            <div class="form-header__text">Search:</div>
+            <mat-form-field class="form-search-user__field">
+                <mat-label class="form-search-user__field-label">Name</mat-label>
+                <input class="form-search-user__field-input" matInput type="text" #searchName (input)="findUserByName(searchName)">
+            </mat-form-field>
+            <mat-form-field class="form-search-user__field">
+                <mat-label class="form-search-user__field-label">Username</mat-label>
+                <input class="form-search-user__field-input" matInput type="text" #searchUserName (input)="findUserByUsername(searchUserName)">
+            </mat-form-field>
+        </form>
+        @if (!usersArray) {
+            <p>Loading.....</p>
+        } @else {
+            <div class="panel">
+                <table class="table sumary_container-table sumary_container-table__users">
+                    <thead class="sumary_container-table__head__users">
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-striped">
+                        @for (user of usersArray; track user.id) {
+                        <tr>
+                            <td>{{user.name}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="main-summary">
+    <h2>Summary</h2>
+    <div class="panel summary_container">
+        <div class="summary_container-type summary_container-income">
+            <h3>Income</h3>
+            <table class="table table-striped summary_container-table summary_container-table__income">
+                <thead class="summary_container-table__head__income">
+                    <tr>
+                        <th>Description</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody class="table-striped">
+                    @for (income of incomeArray; track income.id) {
+                    <tr>
+                        <td>{{income.description}}</td>
+                        <td>USD {{income.value}}</td>
+                    </tr>
+                    }
+                    <tr>
+                        <td>Total:</td>
+                        <td>{{totalBudget}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="summary_container-type summary_container-expenses">
+            <h3>Expenses</h3>
+            <table class="table table-striped summary_container-table summary_container-table__expenses">
+                <thead class="summary_container-table__head__expenses">
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody class="table-striped">
+                    @for (expense of expensesArray; track expense.id) {
+                    <tr>
+                        <td>{{expense.description}}</td>
+                        <td>{{expense.category}}</td>
+                        <td>USD {{expense.value}}</td>
+                    </tr>
+                    }
+                    <tr>
+                        <td>Total:</td>
+                        <td></td>
+                        <td>{{totalExpense}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel summary-graphs">
+        <div class="summary-graphs__group">
+            <app-pie-expense-chart></app-pie-expense-chart>
+            <app-column-income-expense-component></app-column-income-expense-component>
+        </div>
+    </div>
+</div>

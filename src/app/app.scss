@@ -1,0 +1,27 @@
+.sidenav-container {
+    height: 100vh;
+    background-color: #fff;
+    &__element {
+        background-color: #172931;
+        &-list {
+            &__item {
+                &-text {
+                    display: inline;
+                    vertical-align: bottom;
+                    align-content: center;
+                    margin: auto;
+                }
+                a {
+                    color: #fff;
+                    font-size: 25px;
+                    border-radius: 20px;
+                    width: 100%;
+                    text-align: start;
+                    &:hover {
+                        color: #d4835b;
+                    }
+                }
+            }
+        }
+    }
+}

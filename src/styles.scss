@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Manrope, Roboto, "Helvetica Neue", sans-serif; }
+.panel {
+    background-color: #172931;
+    border-radius: 10px;
+    padding: 1em 2em;
+    color: white;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

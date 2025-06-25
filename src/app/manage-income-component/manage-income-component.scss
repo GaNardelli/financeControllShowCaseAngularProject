@@ -1,0 +1,21 @@
+.main_income_component {
+    padding: 10px 20px;
+    &-add_new {
+        margin-bottom: 2em;
+    }
+}
+
+.sumary_container-table {
+    text-transform: uppercase;
+}
+
+.form {
+    width: 50%;
+    mat-form-field {
+        display: block;
+    }
+}
+
+h2 {
+    margin-top: 20px;
+}

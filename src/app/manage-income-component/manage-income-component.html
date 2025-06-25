@@ -1,0 +1,51 @@
+<div class="main_income_component">
+    <div class="panel main_income_component-add_new">
+        <h2>Add New Income</h2>
+        <div mat-dialog-content>
+            <form #incomesForm="ngForm" (ngSubmit)="addNewIncome(incomesForm)" class="form form_income" style="display: block;">
+                <mat-form-field>
+                    <mat-label appearance="fill" >Description</mat-label>
+                    <input matInput placeholder="Supermarket" type="text" id="incomeDescription" [(ngModel)]="income_description" name="income_description"/>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label appearance="fill" for="incomeValue">Value</mat-label>
+                    <input matInput placeholder="150" type="number" id="incomeValue" [(ngModel)]="income_value" name="income_value"/>
+                </mat-form-field>
+                <button type="submit" style="margin: 10px 0px;" class="btn btn-primary">Add new income</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel sumary_container-type sumary_container-incomes">
+        <h3>Incomes</h3>
+        <table class="table table-striped sumary_container-table sumary_container-table__incomes">
+            <thead class="sumary_container-table__head__incomes">
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (income of incomesArray; track income.id) {
+                <tr>
+                    <td>{{income.description}}</td>
+                    <td>{{income.value}} USD</td>
+                    <td class="expese-action__buttons">
+                        <a class="button btn btn-danger" (click)="deleteFromList(income.id)">
+                            Remove
+                        </a>
+                        <a style="margin-left: 10px;"class="button btn btn-primary" (click)="openUpdateDialog(income)">
+                            Update
+                        </a>
+                    </td>
+                </tr>
+                }
+                <tr>
+                    <td>Total:</td>
+                    <td>{{totalBudget}} USD</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

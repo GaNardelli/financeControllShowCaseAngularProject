@@ -1,0 +1,62 @@
+<div class="main_expense_component">
+    <div class="panel main_expense_component-add_new">
+        <h2>Add New Expense</h2>
+        <div mat-dialog-content>
+            <form #expensesForm="ngForm" (ngSubmit)="addNewExpense(expensesForm)" class="form form_expense" style="display: block;">
+                <mat-form-field>
+                    <mat-label appearance="fill" >Description</mat-label>
+                    <input matInput placeholder="Supermarket" type="text" id="expenseDescription" [(ngModel)]="expense_description" name="expense_description"/>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label appearance="fill" for="expenseValue">Value</mat-label>
+                    <input matInput placeholder="150" type="number" id="expenseValue" [(ngModel)]="expense_value" name="expense_value"/>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label appearance="fill" for="expenseCategory">Category</mat-label>
+                    <mat-select id="expenseCategory" [(ngModel)]="expense_category" name="expense_category">
+                        <mat-option value="Supermarket" >Supermarket</mat-option>
+                        <mat-option value="Medicine" >Medicine</mat-option>
+                        <mat-option value="Transport" >Transport</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button type="submit" style="margin: 10px 0px;" class="btn btn-primary">Add new expense</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel sumary_container-type sumary_container-expenses">
+        <h3>Expenses</h3>
+        <table class="table table-striped sumary_container-table sumary_container-table__expenses">
+            <thead class="sumary_container-table__head__expenses">
+                <tr>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (expense of expensesArray; track expense.id) {
+                <tr>
+                    <td>{{expense.description}}</td>
+                    <td>{{expense.category}}</td>
+                    <td>{{expense.value}} USD</td>
+                    <td class="expese-action__buttons">
+                        <a class="button btn btn-danger" (click)="deleteFromList(expense.id)">
+                            Remove
+                        </a>
+                        <a style="margin-left: 10px;"class="button btn btn-primary" (click)="openUpdateDialog(expense)">
+                            Update
+                        </a>
+                    </td>
+                </tr>
+                }
+                <tr>
+                    <td>Total:</td>
+                    <td></td>
+                    <td>{{totalExpense}} USD</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
