@@ -3,15 +3,23 @@ import { catchError } from 'rxjs';
 import { ManageIncomeService} from '../services/manage-income-service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Income } from '../model/income.type';
 import { ModalIncome } from '../components/modal-income/modal-income';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-manage-income-component',
   imports: [FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+  providers: [
+     {
+       provide: MatDialogRef,
+       useValue: {}
+     },
+     ModalIncome
+  ],
   templateUrl: './manage-income-component.html',
   styleUrl: './manage-income-component.scss'
 })

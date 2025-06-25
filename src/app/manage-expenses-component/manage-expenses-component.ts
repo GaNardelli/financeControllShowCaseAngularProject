@@ -4,7 +4,7 @@ import { ManageExpensesService } from '../services/manage-expenses-service';
 import { catchError } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Modal } from '../components/modal/modal';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -12,6 +12,13 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-manage-expenses-component',
   imports: [FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+  providers: [
+     {
+       provide: MatDialogRef,
+       useValue: {}
+     },
+     Modal
+  ],
   templateUrl: './manage-expenses-component.html',
   styleUrl: './manage-expenses-component.scss'
 })

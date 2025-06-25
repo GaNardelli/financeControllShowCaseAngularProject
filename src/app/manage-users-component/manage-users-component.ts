@@ -4,10 +4,8 @@ import { User } from '../model/user.type';
 import { catchError } from 'rxjs';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialog } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { ModalIncome } from '../components/modal-income/modal-income';
 
 @Component({
   selector: 'app-manage-users-component',
