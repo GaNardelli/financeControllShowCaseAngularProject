@@ -1,16 +1,23 @@
 import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { ActivatedRoute, provideRouter } from '@angular/router';
-
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
+import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+
+const useHash = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(HttpClient),
+    importProvidersFrom(),
     provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideClientHydration(withEventReplay())
+    provideRouter(routes),
+    provideClientHydration(withEventReplay()),
+    {
+      provide: LocationStrategy,
+      useClass: useHash ? HashLocationStrategy : PathLocationStrategy
+    }
   ]
 };
