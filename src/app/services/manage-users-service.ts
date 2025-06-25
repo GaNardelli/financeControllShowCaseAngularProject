@@ -10,10 +10,13 @@ export class ManageUsersService {
   constructor() { }
   getUsers(user?: User) {
     let url = 'https://jsonplaceholder.typicode.com/users';
-    if (user?.username && user.username != '') {
+    let username = '';
+    let name = '';
+    if ((user?.username && user.username != '') && (user?.name && user.name != '')) {
+      url += `?username=${username}&name=${name}`;
+    } else if ((user?.username && user.username != '')) {
       url += `?username=${user.username}`;
-    }
-    if (user?.name && user.name != '') {
+    } else if (user?.name && user.name != '') {
       url += `?name=${user.name}`;
     }
     return this.http.get<Array<User>>(url);
